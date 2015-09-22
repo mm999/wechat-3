@@ -1,6 +1,7 @@
 package com.siping.wechat.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 微信用户信息
@@ -29,7 +30,7 @@ public class WeChatUserInfo implements Serializable {
     /**
      * 关注时间
      */
-    private String subscribeTime;
+    private Date subscribeTime;
     /**
      * 呢称
      */
@@ -139,11 +140,11 @@ public class WeChatUserInfo implements Serializable {
         this.headImgUrl = headImgUrl;
     }
 
-    public String getSubscribeTime() {
+    public Date getSubscribeTime() {
         return subscribeTime;
     }
 
-    public void setSubscribeTime(String subscribeTime) {
+    public void setSubscribeTime(Date subscribeTime) {
         this.subscribeTime = subscribeTime;
     }
 }

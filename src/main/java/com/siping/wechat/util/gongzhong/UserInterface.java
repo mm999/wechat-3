@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.httpclient.util.DateUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -79,7 +78,7 @@ public class UserInterface {
             info.setHeadImgUrl(jsonObject.getString("headimgurl"));
 
             Date subscribeTime = new Date(jsonObject.getLong("subscribe_time"));
-            info.setSubscribeTime(DateUtil.formatDate(subscribeTime,"yyyy-MM-dd hh:mm:ss"));
+            info.setSubscribeTime(subscribeTime);
 
             if(jsonObject.has("subscribe")){
                 info.setSubscribe(jsonObject.getInt("subscribe"));
