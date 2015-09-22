@@ -13,9 +13,9 @@ public class MusicMessage extends Message {
         this.music = music;
     }
 
-    public JSONObject generateJsonString() throws Exception {
-        JSONObject jsonObject = super.generateJsonString();
-        jsonObject.put("music", this.getMusic().generateJsonString());
+    public JSONObject generateJsonObject() throws Exception {
+        JSONObject jsonObject = super.generateJsonObject();
+        jsonObject.put("music", this.getMusic().generateJsonObject());
         return jsonObject;
     }
 }

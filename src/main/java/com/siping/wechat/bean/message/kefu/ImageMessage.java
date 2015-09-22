@@ -13,9 +13,9 @@ public class ImageMessage extends Message {
         this.image = image;
     }
 
-    public JSONObject generateJsonString() throws Exception {
-        JSONObject jsonObject = super.generateJsonString();
-        jsonObject.put("image", this.getImage().generateJsonString());
+    public JSONObject generateJsonObject() throws Exception {
+        JSONObject jsonObject = super.generateJsonObject();
+        jsonObject.put("image", this.getImage().generateJsonObject());
         return jsonObject;
     }
 }

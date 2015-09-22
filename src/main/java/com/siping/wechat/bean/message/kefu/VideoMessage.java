@@ -13,9 +13,9 @@ public class VideoMessage extends Message {
         this.video = video;
     }
 
-    public JSONObject generateJsonString() throws Exception {
-        JSONObject jsonObject = super.generateJsonString();
-        jsonObject.put("video", this.getVideo().generateJsonString());
+    public JSONObject generateJsonObject() throws Exception {
+        JSONObject jsonObject = super.generateJsonObject();
+        jsonObject.put("video", this.getVideo().generateJsonObject());
         return jsonObject;
     }
 }

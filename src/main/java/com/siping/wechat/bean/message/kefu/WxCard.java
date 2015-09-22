@@ -24,10 +24,10 @@ public class WxCard implements SendableMessage {
         this.cardExt = cardExt;
     }
 
-    public JSONObject generateJsonString() throws Exception {
+    public JSONObject generateJsonObject() throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("card_id", this.getCardId());
-        jsonObject.put("card_ext", this.getCardExt().generateJsonString());
+        jsonObject.put("card_ext", this.getCardExt().generateJsonObject());
         return jsonObject;
     }
 }

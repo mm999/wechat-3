@@ -13,9 +13,9 @@ public class VoiceMessage extends Message {
         this.voice = voice;
     }
 
-    public JSONObject generateJsonString() throws Exception {
-        JSONObject jsonObject = super.generateJsonString();
-        jsonObject.put("voice", this.getVoice().generateJsonString());
+    public JSONObject generateJsonObject() throws Exception {
+        JSONObject jsonObject = super.generateJsonObject();
+        jsonObject.put("voice", this.getVoice().generateJsonObject());
         return jsonObject;
     }
 }

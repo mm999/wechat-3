@@ -13,9 +13,9 @@ public class CardMessage extends Message {
         this.wxcard = wxcard;
     }
 
-    public JSONObject generateJsonString() throws Exception {
-        JSONObject jsonObject = super.generateJsonString();
-        jsonObject.put("wxcard", this.getWxcard().generateJsonString());
+    public JSONObject generateJsonObject() throws Exception {
+        JSONObject jsonObject = super.generateJsonObject();
+        jsonObject.put("wxcard", this.getWxcard().generateJsonObject());
         return jsonObject;
     }
 }

@@ -15,7 +15,7 @@ public class Media implements SendableMessage{
         this.mediaId = mediaId;
     }
 
-    public JSONObject generateJsonString() throws Exception {
+    public JSONObject generateJsonObject() throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("media_id", this.getMediaId());
         return jsonObject;

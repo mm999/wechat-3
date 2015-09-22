@@ -16,8 +16,8 @@ public class UserInterfaceTest {
 
     @Before
     public void createWeChatAccountTest() throws Exception {
-        weChatAccount.setAppid("wx9dd47ea1db712204");
-        weChatAccount.setAppsecret("32e6ebebc5cdb88211a61b12c12388bf ");
+        weChatAccount.setAppid("wx90f846fb078ece3c");
+        weChatAccount.setAppsecret("eb550804df5ccf87a0d683ae7623066f ");
         weChatAccount.setToken("sipingsoft");
         BasicInterface.getAccessToken(weChatAccount);
     }

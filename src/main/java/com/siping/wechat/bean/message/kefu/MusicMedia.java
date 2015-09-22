@@ -51,7 +51,7 @@ public class MusicMedia implements SendableMessage{
         this.thumbMediaId = thumbMediaId;
     }
 
-    public JSONObject generateJsonString() throws Exception {
+    public JSONObject generateJsonObject() throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("title", this.getTitle());
         jsonObject.put("description", this.getDescription());

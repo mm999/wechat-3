@@ -42,7 +42,7 @@ public class WxCardExt implements SendableMessage{
         this.signature = signature;
     }
 
-    public JSONObject generateJsonString() throws Exception {
+    public JSONObject generateJsonObject() throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("code", this.getCode());
         jsonObject.put("openid", this.getOpenid());

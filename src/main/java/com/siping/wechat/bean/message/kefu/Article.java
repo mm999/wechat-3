@@ -33,7 +33,7 @@ public class Article implements SendableMessage{
     public void setPicurl(String picurl) {
         this.picurl = picurl;
     }
-    public JSONObject generateJsonString() throws Exception {
+    public JSONObject generateJsonObject() throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("title", this.getTitle());
         jsonObject.put("description", this.getDescription());

@@ -10,6 +10,7 @@ import com.siping.wechat.HttpRequestMethod;
 import com.siping.wechat.WeChatConstant;
 import com.siping.wechat.bean.WeChatAccount;
 import com.siping.wechat.bean.message.kefu.CustomService;
+import com.siping.wechat.bean.message.kefu.Message;
 import com.siping.wechat.util.WeChatUtil;
 
 public class CustomerServiceInterface {
@@ -20,7 +21,7 @@ public class CustomerServiceInterface {
         String url = WeChatConstant.ADD_CUSTOM_SERVICE;
         url = url.replace("ACCESS_TOKEN", wechatAccount.getAccessToken().getToken());
         try {
-            JSONObject jsonObject = WeChatUtil.sendHttpRequestAndParseResultToJsonobject(url, HttpRequestMethod.POST, customService.generateJsonString().toString());
+            JSONObject jsonObject = WeChatUtil.sendHttpRequestAndParseResultToJsonobject(url, HttpRequestMethod.POST, customService.generateJsonObject().toString());
             if (jsonObject.has(WeChatConstant.JSON_ERRCODE_KEY)) {
                 Integer errorCode = jsonObject.getInt(WeChatConstant.JSON_ERRCODE_KEY);
                 if (errorCode != 0) {
@@ -36,7 +37,7 @@ public class CustomerServiceInterface {
         String url = WeChatConstant.UPDATE_CUSTOM_SERVICE;
         url = url.replace("ACCESS_TOKEN", wechatAccount.getAccessToken().getToken());
         try {
-            JSONObject jsonObject = WeChatUtil.sendHttpRequestAndParseResultToJsonobject(url, HttpRequestMethod.POST, customService.generateJsonString().toString());
+            JSONObject jsonObject = WeChatUtil.sendHttpRequestAndParseResultToJsonobject(url, HttpRequestMethod.POST, customService.generateJsonObject().toString());
             if (jsonObject.has(WeChatConstant.JSON_ERRCODE_KEY)) {
                 Integer errorCode = jsonObject.getInt(WeChatConstant.JSON_ERRCODE_KEY);
                 if (errorCode != 0) {
@@ -52,7 +53,7 @@ public class CustomerServiceInterface {
         String url = WeChatConstant.DELETE_CUSTOM_SERVICE;
         url = url.replace("ACCESS_TOKEN", wechatAccount.getAccessToken().getToken());
         try {
-            JSONObject jsonObject = WeChatUtil.sendHttpRequestAndParseResultToJsonobject(url, HttpRequestMethod.POST, customService.generateJsonString().toString());
+            JSONObject jsonObject = WeChatUtil.sendHttpRequestAndParseResultToJsonobject(url, HttpRequestMethod.GET, customService.generateJsonObject().toString());
             if (jsonObject.has(WeChatConstant.JSON_ERRCODE_KEY)) {
                 Integer errorCode = jsonObject.getInt(WeChatConstant.JSON_ERRCODE_KEY);
                 if (errorCode != 0) {
@@ -69,7 +70,7 @@ public class CustomerServiceInterface {
         url = url.replace("ACCESS_TOKEN", wechatAccount.getAccessToken().getToken());
         List<CustomService> customs = null;
         try {
-            JSONObject jsonObject = WeChatUtil.sendHttpRequestAndParseResultToJsonobject(url, HttpRequestMethod.POST, customService.generateJsonString().toString());
+            JSONObject jsonObject = WeChatUtil.sendHttpRequestAndParseResultToJsonobject(url, HttpRequestMethod.POST, customService.generateJsonObject().toString());
             if (jsonObject.has(WeChatConstant.JSON_ERRCODE_KEY)) {
                 Integer errorCode = jsonObject.getInt(WeChatConstant.JSON_ERRCODE_KEY);
                 if (errorCode != 0) {
@@ -91,5 +92,21 @@ public class CustomerServiceInterface {
             throw e;
         }
         return customs;
+    }
+
+    public static void sendMessage(WeChatAccount wechatAccount, Message message) throws Exception {
+        String url = WeChatConstant.SEND_MESSAGE_CUSTOM_SERVICE;
+        url = url.replace("ACCESS_TOKEN", wechatAccount.getAccessToken().getToken());
+        try {
+            JSONObject jsonObject = WeChatUtil.sendHttpRequestAndParseResultToJsonobject(url, HttpRequestMethod.POST, message.generateJsonObject().toString());
+            if (jsonObject.has(WeChatConstant.JSON_ERRCODE_KEY)) {
+                Integer errorCode = jsonObject.getInt(WeChatConstant.JSON_ERRCODE_KEY);
+                if (errorCode != 0) {
+                    throw new Exception(jsonObject.getString(WeChatConstant.JSON_ERRMSG_KEY));
+                }
+            }
+        } catch (Exception e) {
+            throw e;
+        }
     }
 }

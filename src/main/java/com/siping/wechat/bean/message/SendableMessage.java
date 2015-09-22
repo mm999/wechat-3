@@ -5,6 +5,6 @@ import org.json.JSONObject;
 
 public interface SendableMessage {
 
-    public JSONObject generateJsonString() throws Exception;
+    public JSONObject generateJsonObject() throws Exception;
 
 }

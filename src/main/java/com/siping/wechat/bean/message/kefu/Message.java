@@ -38,12 +38,12 @@ public class Message implements SendableMessage{
         this.customService = customService;
     }
 
-    public JSONObject generateJsonString() throws Exception {
+    public JSONObject generateJsonObject() throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("touser", this.getTouser());
-        jsonObject.put("msgtype", this.getMsgtype().values());
+        jsonObject.put("msgtype", this.getMsgtype());
         if(customService != null) {
-            jsonObject.put("customservice", getCustomService().generateJsonString());
+            jsonObject.put("customservice", getCustomService().generateJsonObject());
         }
         return jsonObject;
     }

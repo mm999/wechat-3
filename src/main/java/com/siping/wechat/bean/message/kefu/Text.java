@@ -15,7 +15,7 @@ public class Text implements SendableMessage{
         this.content = content;
     }
 
-    public JSONObject generateJsonString() throws Exception {
+    public JSONObject generateJsonObject() throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("content", this.getContent());
         return jsonObject;

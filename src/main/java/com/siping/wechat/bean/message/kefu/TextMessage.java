@@ -13,9 +13,9 @@ public class TextMessage extends Message {
         this.text = text;
     }
 
-    public JSONObject generateJsonString() throws Exception {
-        JSONObject jsonObject = super.generateJsonString();
-        jsonObject.put("text", getText().generateJsonString());
+    public JSONObject generateJsonObject() throws Exception {
+        JSONObject jsonObject = super.generateJsonObject();
+        jsonObject.put("text", getText().generateJsonObject());
         return jsonObject;
     }
 

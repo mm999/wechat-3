@@ -16,12 +16,12 @@ public class PicTextMessage extends Message {
         this.articles = articles;
     }
 
-    public JSONObject generateJsonString() throws Exception {
-        JSONObject jsonObject = super.generateJsonString();
+    public JSONObject generateJsonObject() throws Exception {
+        JSONObject jsonObject = super.generateJsonObject();
         JSONObject news = new JSONObject();
         JSONArray jsonArray =  new JSONArray();
         for(Article article:articles) {
-            JSONObject articleJson = article.generateJsonString();
+            JSONObject articleJson = article.generateJsonObject();
             jsonArray.put(articleJson);
         }
         news.put("articles", jsonArray);

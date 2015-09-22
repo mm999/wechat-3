@@ -31,7 +31,7 @@ public class VideoMedia extends Media {
         this.description = description;
     }
 
-    public JSONObject generateJsonString() throws Exception {
+    public JSONObject generateJsonObject() throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("media_id", this.getMediaId());
         jsonObject.put("thumb_media_id", this.getThumbMediaId());

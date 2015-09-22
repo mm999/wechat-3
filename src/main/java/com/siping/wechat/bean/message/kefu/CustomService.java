@@ -60,7 +60,7 @@ public class CustomService implements SendableMessage{
         this.kfHeadimgurl = kfHeadimgurl;
     }
 
-    public JSONObject generateJsonString() throws Exception {
+    public JSONObject generateJsonObject() throws Exception {
         JSONObject jsonObject = new JSONObject();
         if(!isNullOrEmpty(this.getKfAccount())) {
             jsonObject.put("kf_account", this.getKfAccount());

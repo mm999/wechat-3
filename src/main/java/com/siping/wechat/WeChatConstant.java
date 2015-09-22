@@ -38,6 +38,7 @@ public class WeChatConstant {
     public static final String UPDATE_CUSTOM_SERVICE = "https://api.weixin.qq.com/customservice/kfaccount/update?access_token=ACCESS_TOKEN";
     public static final String DELETE_CUSTOM_SERVICE = "https://api.weixin.qq.com/customservice/kfaccount/del?access_token=ACCESS_TOKEN";
     public static final String GET_CUSTOM_SERVICE = "https://api.weixin.qq.com/cgi-bin/customservice/getkflist?access_token=ACCESS_TOKEN";
+    public static final String SEND_MESSAGE_CUSTOM_SERVICE = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=ACCESS_TOKEN";
     
 	public static final String JSON_ERRMSG_KEY = "errmsg";
     public static final String JSON_ERRCODE_KEY = "errcode";
