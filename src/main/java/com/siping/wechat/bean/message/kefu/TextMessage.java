@@ -2,7 +2,7 @@ package com.siping.wechat.bean.message.kefu;
 
 import org.json.JSONObject;
 
-public class TextMessage extends Message {
+public class TextMessage extends KeFuMessage {
     private Text text;
 
     public Text getText() {
@@ -10,6 +10,12 @@ public class TextMessage extends Message {
     }
 
     public void setText(Text text) {
+        this.text = text;
+    }
+
+    public void setText(String content) {
+        Text text = new Text();
+        text.setContent(content);
         this.text = text;
     }
 

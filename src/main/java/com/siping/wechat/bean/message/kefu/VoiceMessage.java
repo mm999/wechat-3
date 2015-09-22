@@ -2,7 +2,7 @@ package com.siping.wechat.bean.message.kefu;
 
 import org.json.JSONObject;
 
-public class VoiceMessage extends Message {
+public class VoiceMessage extends KeFuMessage {
     private Media voice;
 
     public Media getVoice() {

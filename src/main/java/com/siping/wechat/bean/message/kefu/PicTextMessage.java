@@ -5,7 +5,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class PicTextMessage extends Message {
+public class PicTextMessage extends KeFuMessage {
     private List<Article> articles;
 
     public List<Article> getArticles() {

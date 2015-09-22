@@ -4,13 +4,13 @@ import org.json.JSONObject;
 
 import com.siping.wechat.bean.message.SendableMessage;
 
-public class Message implements SendableMessage{
+public class KeFuMessage implements SendableMessage{
 
     private String touser; //用户的openid
     private MessageType msgtype;
     private CustomService customService;
 
-    public Message() {
+    public KeFuMessage() {
         super();
     }
 

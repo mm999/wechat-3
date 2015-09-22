@@ -4,8 +4,16 @@ import org.json.JSONObject;
 
 import com.siping.wechat.bean.message.SendableMessage;
 
-public class Text implements SendableMessage{
+public class Text implements SendableMessage {
     private String content;
+
+    public Text() {
+
+    }
+
+    public Text(String content) {
+        this.content = content;
+    }
 
     public String getContent() {
         return content;
@@ -20,5 +28,5 @@ public class Text implements SendableMessage{
         jsonObject.put("content", this.getContent());
         return jsonObject;
     }
-    
+
 }

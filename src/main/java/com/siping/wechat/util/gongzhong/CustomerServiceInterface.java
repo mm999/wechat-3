@@ -10,7 +10,7 @@ import com.siping.wechat.HttpRequestMethod;
 import com.siping.wechat.WeChatConstant;
 import com.siping.wechat.bean.WeChatAccount;
 import com.siping.wechat.bean.message.kefu.CustomService;
-import com.siping.wechat.bean.message.kefu.Message;
+import com.siping.wechat.bean.message.kefu.KeFuMessage;
 import com.siping.wechat.util.WeChatUtil;
 
 public class CustomerServiceInterface {
@@ -94,7 +94,7 @@ public class CustomerServiceInterface {
         return customs;
     }
 
-    public static void sendMessage(WeChatAccount wechatAccount, Message message) throws Exception {
+    public static void sendMessage(WeChatAccount wechatAccount, KeFuMessage message) throws Exception {
         String url = WeChatConstant.SEND_MESSAGE_CUSTOM_SERVICE;
         url = url.replace("ACCESS_TOKEN", wechatAccount.getAccessToken().getToken());
         try {

@@ -2,7 +2,7 @@ package com.siping.wechat.bean.message.kefu;
 
 import org.json.JSONObject;
 
-public class CardMessage extends Message {
+public class CardMessage extends KeFuMessage {
     private WxCard wxcard;
 
     public WxCard getWxcard() {
