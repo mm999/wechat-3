@@ -30,7 +30,7 @@ public class CustomServiceInterfaceTest {
     @Ignore
     public void addCustomServiceTest() throws Exception {
         CustomService custom = new CustomService();
-        custom.setKfAccount("1xxxa@HeareaTest");
+        custom.setKfAccount("cus@HeareaTest");
         custom.setNickname("陈");
         custom.setPassword("123456");
         System.out.println(custom.generateJsonObject().toString());
@@ -71,7 +71,7 @@ public class CustomServiceInterfaceTest {
         String filePath = ClassLoader.getSystemClassLoader().getResource("glyphicons-halflings.png").getPath();
         MediaFile mediaFile = new MediaFile();
         mediaFile.setFilePath(filePath);
-        mediaFile.setFileType(FileType.IMAGE);;
+        mediaFile.setFileType(FileType.IMAGE);
         MediaInterface.addMateria(weChatAccount, mediaFile);
 
         Media media = new Media();
