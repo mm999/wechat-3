@@ -19,7 +19,6 @@ import com.siping.wechat.bean.menu.PicWeixinButton;
 import com.siping.wechat.bean.menu.ScancodePushButton;
 import com.siping.wechat.bean.menu.ScancodeWaitmsgButton;
 import com.siping.wechat.bean.menu.ViewButton;
-import com.siping.wechat.bean.menu.ViewLimitedButton;
 
 public class MenuInterfaceTest {
     private static WeChatAccount weChatAccount = new WeChatAccount();

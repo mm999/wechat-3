@@ -4,14 +4,11 @@ package com.siping.wechat.util.gongzhong;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.siping.wechat.HttpRequestMethod;
-import com.siping.wechat.WeChatConstant;
 import com.siping.wechat.bean.FileType;
 import com.siping.wechat.bean.MediaFile;
 import com.siping.wechat.bean.PicTextMessage;
@@ -19,7 +16,6 @@ import com.siping.wechat.bean.WeChatAccount;
 import com.siping.wechat.bean.WeChatUserInfo;
 import com.siping.wechat.bean.message.TemplateData;
 import com.siping.wechat.bean.message.TemplateMessage;
-import com.siping.wechat.util.WeChatUtil;
 
 public class MediaInterfaceTest {
     private static WeChatAccount weChatAccount = new WeChatAccount();
@@ -74,7 +70,7 @@ public class MediaInterfaceTest {
         templateMessage.setUrl("http://www.baidu.com");
         Map<String, TemplateData> data = new HashMap<String, TemplateData>();
         TemplateData first = new TemplateData();
-        first.setValue("您于2015/05/25 14:58成功申请提现。");
+        first.setValue("模版消息测试：您于2015/05/25 14:58成功申请提现。");
         first.setColor("#FF0000");
         TemplateData keyword1 = new TemplateData();
         keyword1.setValue("100.00");

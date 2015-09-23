@@ -12,7 +12,6 @@ import com.siping.wechat.WeChatQiyeConstant;
 import com.siping.wechat.bean.QiyeAccount;
 import com.siping.wechat.bean.QiyeDepartment;
 import com.siping.wechat.bean.QiyeUserInfo;
-import com.siping.wechat.bean.WeChatGroup;
 import com.siping.wechat.util.WeChatUtil;
 
 
