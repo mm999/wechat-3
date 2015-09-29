@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.siping.wechat.bean.JSSDKTicket;
+import com.siping.wechat.bean.JSSignature;
 import com.siping.wechat.bean.WeChatAccount;
 
 public class JSSDKInterfaceTest {
@@ -23,5 +24,8 @@ public class JSSDKInterfaceTest {
     public void getJSTicketTest() throws Exception {
         JSSDKTicket jsTicket = JSSDKInterface.getJSTicket(weChatAccount);
         Assert.assertNotNull(jsTicket);
+
+        JSSignature signature = JSSDKInterface.generateSignature("http://mp.weixin.qq.com?params=value", jsTicket);
+        Assert.assertNotNull(signature.getSignature());
     }
 }
