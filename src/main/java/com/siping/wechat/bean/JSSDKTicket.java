@@ -1,6 +1,8 @@
 package com.siping.wechat.bean;
 
-public class JSTicket {
+import java.io.Serializable;
+
+public class JSSDKTicket implements Serializable{
     /**
      *  获取到的凭证
      */

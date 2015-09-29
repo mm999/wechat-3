@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.siping.wechat.bean.JSTicket;
+import com.siping.wechat.bean.JSSDKTicket;
 import com.siping.wechat.bean.WeChatAccount;
 
 public class JSSDKInterfaceTest {
@@ -21,7 +21,7 @@ public class JSSDKInterfaceTest {
 
     @Test
     public void getJSTicketTest() throws Exception {
-        JSTicket jsTicket = JSSDKInterface.getJSTicket(weChatAccount);
+        JSSDKTicket jsTicket = JSSDKInterface.getJSTicket(weChatAccount);
         Assert.assertNotNull(jsTicket);
     }
 }
