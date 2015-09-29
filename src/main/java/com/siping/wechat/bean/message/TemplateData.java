@@ -1,6 +1,5 @@
 package com.siping.wechat.bean.message;
 
-import net.sf.json.JSONObject;
 
 public class TemplateData {
     private String value;

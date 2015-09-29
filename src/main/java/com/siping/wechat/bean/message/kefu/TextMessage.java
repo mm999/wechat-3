@@ -14,9 +14,10 @@ public class TextMessage extends KeFuMessage {
     }
 
     public void setText(String content) {
-        Text text = new Text();
+        if (text == null) {
+            text = new Text();
+        }
         text.setContent(content);
-        this.text = text;
     }
 
     public JSONObject generateJsonObject() throws Exception {
