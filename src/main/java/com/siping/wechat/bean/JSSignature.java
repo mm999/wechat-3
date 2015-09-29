@@ -1,13 +1,27 @@
 package com.siping.wechat.bean;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class JSSignature implements Serializable {
     private JSSDKTicket ticket;
     private String url;
-    private String noncestr = Math.random() + "";
-    private Long timestamp = System.currentTimeMillis();
+    private String noncestr;
+    private Long timestamp;
     private String signature = "";
+
+    public JSSignature() {
+        timestamp = System.currentTimeMillis()/1000;
+
+        String base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Random random = new Random();
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < 15; i++) {
+            int number = random.nextInt(base.length());
+            sb.append(base.charAt(number));
+        }
+        noncestr = sb.toString();
+    }
 
     public JSSDKTicket getTicket() {
         return ticket;
