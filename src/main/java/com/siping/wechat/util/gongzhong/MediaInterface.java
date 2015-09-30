@@ -256,7 +256,7 @@ public class MediaInterface {
                 throw new Exception(jsonObject.getString(WeChatConstant.JSON_ERRMSG_KEY));
             } else {
                 ByteArrayOutputStream output = new ByteArrayOutputStream();
-                byte[] buffer = new byte[1024 * 102];
+                byte[] buffer = new byte[1024*42];
                 int n = 0;
                 while (-1 != (n = inputStream.read(buffer))) {
                     output.write(buffer, 0, n);
@@ -285,7 +285,6 @@ public class MediaInterface {
      * 上传图文消息
      * @param wechatAccount
      * @param message
-     * @return TODO
      * @throws Exception
      */
     public static String uploadMessage(WeChatAccount wechatAccount, PicTextMessage message) throws Exception{
