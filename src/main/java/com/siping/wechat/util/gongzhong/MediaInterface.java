@@ -1,11 +1,14 @@
 package com.siping.wechat.util.gongzhong;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -139,7 +142,6 @@ public class MediaInterface {
      *  "type":"image"
      * }
      */
-    @Deprecated
     public static String uploadFile(WeChatAccount wechatAccount, MediaFile mediaFile) throws Exception {
         String action = WeChatConstant.UPLOAD_FILE;
         action = action.replace("ACCESS_TOKEN", wechatAccount.getAccessToken().getToken()).replace("FILE_TYPE", mediaFile.getFileType().getTag());
@@ -213,6 +215,69 @@ public class MediaInterface {
             String mediaId = jsonObj.getString("media_id");
             mediaFile.setMediaId(mediaId);
             return mediaId;
+        }
+    }
+
+    /**
+     * 通过mediaId到微信服务器下载
+     * @param wechatAccount
+     * @param mediaFile
+     * @return
+     * @throws Exception
+     */
+    public static InputStream downloadFile(WeChatAccount wechatAccount, MediaFile mediaFile) throws Exception {
+        InputStream inputStream = null;
+        InputStreamReader inputStreamReader = null;
+        BufferedReader bufferedReader = null;
+        HttpURLConnection con = null;
+
+        String action = WeChatConstant.DOWNLOAD_FILE;
+        action = action.replace("ACCESS_TOKEN", wechatAccount.getAccessToken().getToken()).replace("MEDIA_ID", mediaFile.getMediaId());
+
+        try {
+            URL url = new URL(action);
+            con = (HttpURLConnection) url.openConnection();
+            // 以get方式提交表单
+            con.setRequestMethod("GET");
+            con.setDoInput(true);
+
+            inputStream = con.getInputStream();
+
+            if (con.getHeaderField("Content-Type").contains("text/plain")) {
+                inputStreamReader = new InputStreamReader(inputStream, "utf-8");
+                bufferedReader = new BufferedReader(inputStreamReader);
+
+                String str = null;
+                StringBuffer buffer = new StringBuffer();
+                while ((str = bufferedReader.readLine()) != null) {
+                    buffer.append(str);
+                }
+                JSONObject jsonObject = new JSONObject(buffer.toString());
+                throw new Exception(jsonObject.getString(WeChatConstant.JSON_ERRMSG_KEY));
+            } else {
+                ByteArrayOutputStream output = new ByteArrayOutputStream();
+                byte[] buffer = new byte[1024 * 102];
+                int n = 0;
+                while (-1 != (n = inputStream.read(buffer))) {
+                    output.write(buffer, 0, n);
+                }
+                return new ByteArrayInputStream(output.toByteArray());
+            }
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (bufferedReader != null) {
+                bufferedReader.close();
+            }
+            if (inputStreamReader != null) {
+                inputStreamReader.close();
+            }
+            if (inputStream != null) {
+                inputStream.close();
+            }
+            if (con != null) {
+                con.disconnect();
+            }
         }
     }
 
