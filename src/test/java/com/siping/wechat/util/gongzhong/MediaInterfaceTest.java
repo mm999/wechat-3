@@ -1,6 +1,7 @@
 package com.siping.wechat.util.gongzhong;
 
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,9 +60,25 @@ public class MediaInterfaceTest {
         MediaInterface.sendAllMessege(weChatAccount, picTextMessage);
     }
 
-    @Test
-    public void templateMessage() throws Exception {
+    @Test(expected = Exception.class)
+    public void uploadAndDownLoadFileTest() throws Exception {
+        String filePath = ClassLoader.getSystemClassLoader().getResource("glyphicons-halflings.png").getPath();
+        MediaFile file = new MediaFile();
+        file.setFilePath(filePath);
+        file.setFileType(FileType.IMAGE);
+        MediaInterface.uploadFile(weChatAccount, file);
+        Assert.assertNotNull(file.getMediaId());
 
+        InputStream is = MediaInterface.downloadFile(weChatAccount, file);
+        Assert.assertNotNull(is);
+
+        file.setMediaId("laslkasjfdlksadf");
+        MediaInterface.downloadFile(weChatAccount, file);
+    }
+
+    @Test
+    @Ignore
+    public void templateMessage() throws Exception {
         TemplateMessage templateMessage = new TemplateMessage();
         templateMessage.setTemplate_id("TrCBQvynkw5J21KXPgqyDgNC9rH0Ily6C6hMmMfdVGI");
         WeChatUserInfo user = new WeChatUserInfo();
