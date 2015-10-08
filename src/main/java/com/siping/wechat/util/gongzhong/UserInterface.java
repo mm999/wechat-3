@@ -77,7 +77,7 @@ public class UserInterface {
             info.setSex(jsonObject.getInt("sex"));
             info.setHeadImgUrl(jsonObject.getString("headimgurl"));
 
-            Date subscribeTime = new Date(jsonObject.getLong("subscribe_time"));
+            Date subscribeTime = new Date(jsonObject.getLong("subscribe_time") * 1000l);
             info.setSubscribeTime(subscribeTime);
 
             if(jsonObject.has("subscribe")){
