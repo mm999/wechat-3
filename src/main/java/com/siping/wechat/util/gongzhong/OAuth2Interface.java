@@ -1,5 +1,6 @@
 package com.siping.wechat.util.gongzhong;
 
+import java.net.URLEncoder;
 import java.util.Date;
 
 import org.json.JSONException;
@@ -73,4 +74,20 @@ public class OAuth2Interface {
         }
         return userInfo;
     }
+
+    /**
+     * 根据重定向url生成oauth链接
+     * @param wechatAccount
+     * @param redirectUrl
+     * @return
+     * @throws Exception
+     */
+    public static String generateOauthUrl(WeChatAccount wechatAccount, String redirectUrl, String type) throws Exception{
+        if (type == null || type.equalsIgnoreCase("base")) {
+            return WeChatConstant.OAUTH_BASE_REDIRECT_URL.replace("REDIRECT_URI", URLEncoder.encode(redirectUrl, "UTF-8")).replace("APPID", wechatAccount.getAppid());
+        } else {
+            return WeChatConstant.OAUTH_INFO_REDIRECT_URL.replace("REDIRECT_URI", URLEncoder.encode(redirectUrl, "UTF-8")).replace("APPID", wechatAccount.getAppid());
+        }
+    }
+
 }
