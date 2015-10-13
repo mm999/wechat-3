@@ -6,6 +6,7 @@ import java.util.Random;
 public class JSSignature implements Serializable {
     private JSSDKTicket ticket;
     private String url;
+    private String appid;
     private String noncestr;
     private Long timestamp;
     private String signature = "";
@@ -52,5 +53,11 @@ public class JSSignature implements Serializable {
     }
     public void setSignature(String signature) {
         this.signature = signature;
+    }
+    public String getAppid() {
+        return appid;
+    }
+    public void setAppid(String appid) {
+        this.appid = appid;
     }
 }
