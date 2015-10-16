@@ -283,7 +283,11 @@ public class MediaInterface {
     }
 
     public static String parseFileExt(String contentType) {
-        return contentType.split("/")[1].toLowerCase();
+        if (contentType.contains("/")) {
+            return contentType.split("/")[1].toLowerCase();
+        } else {
+            return "";
+        }
     }
 
     /**
