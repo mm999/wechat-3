@@ -255,8 +255,9 @@ public class MediaInterface {
                 JSONObject jsonObject = new JSONObject(buffer.toString());
                 throw new Exception(jsonObject.getString(WeChatConstant.JSON_ERRMSG_KEY));
             } else {
+                mediaFile.setFilePath(parseFileExt(con.getContentType()));
                 ByteArrayOutputStream output = new ByteArrayOutputStream();
-                byte[] buffer = new byte[1024*42];
+                byte[] buffer = new byte[1024*50];
                 int n = 0;
                 while (-1 != (n = inputStream.read(buffer))) {
                     output.write(buffer, 0, n);
@@ -279,6 +280,10 @@ public class MediaInterface {
                 con.disconnect();
             }
         }
+    }
+
+    public static String parseFileExt(String contentType) {
+        return contentType.split("/")[1].toLowerCase();
     }
 
     /**

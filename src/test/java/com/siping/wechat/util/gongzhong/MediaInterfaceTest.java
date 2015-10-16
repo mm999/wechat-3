@@ -67,9 +67,10 @@ public class MediaInterfaceTest {
         file.setFilePath(filePath);
         file.setFileType(FileType.IMAGE);
         MediaInterface.uploadFile(weChatAccount, file);
-        Assert.assertNotNull(file.getMediaId());
+        Assert.assertNotNull(file.getFilePath());
 
         InputStream is = MediaInterface.downloadFile(weChatAccount, file);
+        Assert.assertNotNull(file.getMediaId());
         Assert.assertNotNull(is);
 
         file.setMediaId("laslkasjfdlksadf");
