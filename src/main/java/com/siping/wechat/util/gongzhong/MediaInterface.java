@@ -243,7 +243,9 @@ public class MediaInterface {
 
             inputStream = con.getInputStream();
 
-            if (con.getHeaderField("Content-Type").contains("text/plain")) {
+            String contentType = con.getHeaderField("Content-Type");
+
+            if (contentType.contains("text/plain")) {
                 inputStreamReader = new InputStreamReader(inputStream, "utf-8");
                 bufferedReader = new BufferedReader(inputStreamReader);
 
@@ -255,7 +257,7 @@ public class MediaInterface {
                 JSONObject jsonObject = new JSONObject(buffer.toString());
                 throw new Exception(jsonObject.getString(WeChatConstant.JSON_ERRMSG_KEY));
             } else {
-                mediaFile.setFilePath(parseFileExt(con.getContentType()));
+                mediaFile.setFilePath(parseFileExt(contentType));
                 ByteArrayOutputStream output = new ByteArrayOutputStream();
                 byte[] buffer = new byte[1024*50];
                 int n = 0;
