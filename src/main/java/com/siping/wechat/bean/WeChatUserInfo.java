@@ -125,7 +125,10 @@ public class WeChatUserInfo implements Serializable {
     }
 
     public String getLanguage() {
-        return language;
+        if(language != null)
+            return "en";
+        else
+            return language.substring(0,2).toLowerCase();
     }
 
     public void setLanguage(String language) {
