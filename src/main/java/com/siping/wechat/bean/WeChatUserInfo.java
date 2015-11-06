@@ -24,7 +24,7 @@ public class WeChatUserInfo implements Serializable {
      */
     private String openid;
     /**
-     * 是否关注 
+     * 是否关注
      */
     private int subscribe = 1;
     /**
@@ -59,6 +59,8 @@ public class WeChatUserInfo implements Serializable {
      * 头像地址
      */
     private String headImgUrl;
+
+    private Boolean isGPSOpen  = false;
 
     public Long getNo() {
         return no;
@@ -149,5 +151,13 @@ public class WeChatUserInfo implements Serializable {
 
     public void setSubscribeTime(Date subscribeTime) {
         this.subscribeTime = subscribeTime;
+    }
+
+    public Boolean getIsGPSOpen() {
+        return isGPSOpen;
+    }
+
+    public void setIsGPSOpen(Boolean isGPSOpen) {
+        this.isGPSOpen = isGPSOpen;
     }
 }
