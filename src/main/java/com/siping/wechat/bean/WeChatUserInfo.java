@@ -60,7 +60,7 @@ public class WeChatUserInfo implements Serializable {
      */
     private String headImgUrl;
 
-    private Boolean isGPSOpen  = false;
+    private Boolean isGPSOpen;
 
     public Long getNo() {
         return no;
