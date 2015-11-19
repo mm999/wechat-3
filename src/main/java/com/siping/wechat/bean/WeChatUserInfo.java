@@ -14,6 +14,7 @@ public class WeChatUserInfo implements Serializable {
     public WeChatUserInfo(String openid) {
         this.openid = openid;
     }
+
     private static final long serialVersionUID = 1L;
     /**
      * 编号，数据库唯一编号
@@ -127,10 +128,15 @@ public class WeChatUserInfo implements Serializable {
     }
 
     public String getLanguage() {
-        if(language == null)
+        if (language == null)
             return "en";
-        else
-            return language.substring(0,2).toLowerCase();
+        else {
+            if (language.length() < 2) {
+                return language.toLowerCase();
+            } else {
+                return language.substring(0, 2).toLowerCase();
+            }
+        }
     }
 
     public void setLanguage(String language) {
